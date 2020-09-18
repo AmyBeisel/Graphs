@@ -67,10 +67,13 @@ class Graph:
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
+
+        DFT traverses the entirety of the graph  
         """
         #make a stack
+        #stack = last in first out
         stack = deque()
-        #starting node
+        #starting node - can start at any node
         stack.append(starting_vertex)
         #make a set to track this
         visited = set()
@@ -149,6 +152,7 @@ class Graph:
         #instantiate a stack
         stack = deque()
         #each element in the stack is the current path
+        #append the current PATH we are currently on.
         stack.append([starting_vertex])
         #create a set to keep track of all visited nodes
         visited = set()
@@ -156,7 +160,7 @@ class Graph:
         while len(stack) > 0 :
             #pop the first path
             currPath = stack.pop()
-            #get the last vertex from the path
+            #get the last node we traverse from the path
             currNode = currPath[-1]
             #is it our target?
             if currNode == destination_vertex:
@@ -168,7 +172,7 @@ class Graph:
                 visited.add(currNode)
                 #add a path to its neighbors
                 for neighbor in self.get_neighbors(currNode):
-                    #new path
+                    #new path and copy it
                     newPath = list(currPath)
                     #append the neighbor
                     newPath.append(neighbor)
@@ -229,8 +233,9 @@ if __name__ == '__main__':
     Should print:
         {1: {2}, 2: {3, 4}, 3: {5}, 4: {6, 7}, 5: {3}, 6: {3}, 7: {1, 6}}
     '''
+    print('Vertices')
     print(graph.vertices)
-    print("++++++++++++++")
+    print("BFT order:")
     '''
     Valid BFT paths:
         1, 2, 3, 4, 5, 6, 7
@@ -247,7 +252,7 @@ if __name__ == '__main__':
         1, 2, 4, 3, 7, 5, 6
     '''
     graph.bft(1)
-    print("+++++++++++++")
+    print("DFT order:")
     '''
     Valid DFT paths:
         1, 2, 3, 5, 4, 6, 7
@@ -257,19 +262,23 @@ if __name__ == '__main__':
     '''
     
     graph.dft(1)
-    print("++++++++")
+    print("DFT recursive order:")
     graph.dft_recursive(1)
 
     '''
     Valid BFS path:
         [1, 2, 4, 6]
     '''
+    print('BFS')
     print(graph.bfs(1, 6))
+    
 
     '''
     Valid DFS paths:
         [1, 2, 4, 6]
         [1, 2, 4, 7, 6]
     '''
+    print('DFS')
     print(graph.dfs(1, 6))
+    print("DFS recursive")
     print(graph.dfs_recursive(1, 6))
