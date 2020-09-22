@@ -23,10 +23,10 @@ weights = None needed
 }
 
 3. Traverse your graph:
-BFT will work.  Can start from any vertex.
+BFT will work.   Can start from any vertex.
  -return the earliest known ancestor
  - If there is more than one ancestor tied to “earliest”, return the one with the lowest 
- numeric ID.
+ numeric ID. +++BFT - so the last ancestor found is always the earliest+++
  -If the input individual has no parents, the function should return -1.
 
 """
@@ -68,12 +68,13 @@ def earliest_ancestor(ancestors, starting_node):
             #mark as visited
             visited.add(curr)
             print(curr)
-            
+
             #for each of the neighbors
             for neighbor in graph[curr]:
                 if neighbor in graph:
                     queue.append(neighbor)
-
+    
+                        
     return neighbor
 
 
@@ -82,4 +83,4 @@ def earliest_ancestor(ancestors, starting_node):
             
 if __name__ == '__main__':
     ancestors = [(1,3),(2,3),(3, 6),(5 ,6),(5 ,7),(4, 5), (4 ,8),(8, 9), (11, 8), (10 ,1)]
-    print(earliest_ancestor(ancestors, 8))
+    print(earliest_ancestor(ancestors,10))
