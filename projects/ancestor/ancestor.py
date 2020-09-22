@@ -26,7 +26,7 @@ weights = None needed
 BFT will work.   Can start from any vertex.
  -return the earliest known ancestor
  - If there is more than one ancestor tied to “earliest”, return the one with the lowest 
- numeric ID. +++BFT - so the last ancestor found is always the earliest+++
+ numeric ID. +++ i am using BFT - so the last ancestor found is always the earliest+++
  -If the input individual has no parents, the function should return -1.
 
 """
