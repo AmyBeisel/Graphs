@@ -63,7 +63,7 @@ traversal_path = [] #empty list
 visited = set() #empty set
 path = [] #empty list
 room = {} #empty dictionary
-last_room = {'n': 's','s': 'n','e': 'w','w': 'e'} #directions
+last_room = {'n': 's','s': 'n','e': 'w','w': 'e'} #directions reversed
 counter = 0
 
 # while we haven't visited all the rooms
